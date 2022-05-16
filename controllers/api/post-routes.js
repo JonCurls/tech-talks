@@ -77,15 +77,6 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
-router.put("/upvote", withAuth, (req, res) => {
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Comment, User })
-    .then((updatedVoteData) => res.json(updatedVoteData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 router.put("/:id", withAuth, (req, res) => {
   Post.update(
     {
