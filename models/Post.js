@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// create our Post model
+// creates our Post model
 class Post extends Model {
   static upvote(body, models) {
     return Post.findOne({
@@ -15,6 +15,7 @@ class Post extends Model {
 
 Post.init(
   {
+    // id, title, post_url, user_id
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
